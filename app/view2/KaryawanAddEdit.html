@@ -1,0 +1,92 @@
+<div class="container" ng-app="myApp.view2" ng-controller="getEmployeeById">
+    <div class="line">
+        <h3>Tambah dan Ubah Data Karyawan</h3>
+    </div>
+    <div class="home">
+        <div class="container">
+            <form class="form-horizontal" ng-controller="View2Ctrl">
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-4 text-left">
+                            <label style="margin-left: 30px;">Name</label>
+                        </div>
+                        <div class="col-md-6">
+                            <input type="text" class="form-control" ng-model=value.name
+                                   ng-show="true" required>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-4 text-left">
+                            <label style="margin-left: 30px;">Tanggal Lahir</label>
+                        </div>
+                        <div class="col-md-5">
+                            <input type="text" class="form-control" ng-model=value.birthDate placeholder="06 July 1997"
+                                   required>
+                        </div>
+                        <div class="com-md-1">
+                            <button><img style="width: 25px; height: 25px;"
+                                         src="https://img.icons8.com/dotty/50/000000/planner.png"/></button>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row" ng-controller="getPositions">
+                        <div class="col-md-4 text-left">
+                            <label style="margin-left: 30px;">Jabatan</label>
+                        </div>
+                        <div class="col-md-6">
+                                <select class="form-control" ng-model="value.position.id" ng-change="something(value.position.id)"
+                                        ng-options="payload.id as payload.name for payload in positions">
+                                </select>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-4 text-left">
+                            <label style="margin-left: 30px;">NIP</label>
+                        </div>
+                        <div class="col-md-6">
+                            <input type="number" class="form-control" ng-model=value.idNumber placeholder="123456789"
+                                   required>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-4 text-left">
+                            <label style="margin-left: 30px;">Jenis Kelamin</label>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="radio-inline">
+                                <input type="radio" name="inlineRadioOptions" ng-model=value.gender value="MALE"
+                                       id="inlineRadio1"> Pria
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="inlineRadioOptions" ng-model=value.gender value="FEMALE"
+                                       id="inlineRadio2"> Wanita
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6" style="left: 350px;" ng-if="!isAdd">
+                        <button ng-click="putData(value.name,value.birthDate,value.position.id, value.idNumber, value.gender)">
+                            <a href="#!/karyawanindex"> Simpan</a></button>
+                    </div>
+                    <div class="col-md-6" style="left: 350px;" ng-if="isAdd">
+                        <button  ng-click="postData(value.name,value.birthDate,value.position.id, value.idNumber, value.gender)">
+                          Simpan</button>
+                    </div>
+
+                    <div class="col-md-6">
+                        <button><a href="#!/karyawanindex">Kembali</a></button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+    </div>
+    <div class="footer">
+        PT. Enigma Cipta Humanika
+    </div>
+
+</div>

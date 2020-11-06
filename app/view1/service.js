@@ -1,0 +1,1 @@
+angularModule.service()
